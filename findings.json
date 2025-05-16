@@ -1,0 +1,58 @@
+[
+    {
+        "index": 0,
+        "name": "Weak 2FA Implementation",
+        "code": "F1",
+        "rating": "High",
+        "description": "Two Factor Authentication (2FA) adds an extra layer of security to user accounts by prompting them to enter a uniquely generated one-time password (OTP) after they have successfully inputted their username and password. The application's implementation of 2FA is weak which makes user accounts more susceptible to compromise. An attacker can take advantage of this weak 2FA implementation and potentially take over user accounts.",
+        "impact": "This vulnerability can lead to reputational damage and indirect financial loss to the company as customers may view the application as insecure.",
+        "recommendation": "There is no single technique to implement 2FA securely. However, the following best practices should be adhered to:\r\n- The 2FA code should be invalidated each time a new code is requested\r\n- 2FA should be implemented for users upon sensitive actions such as login, change of password or security questions, elevation of user session, change of email address or phone number, and disabling of 2FA.\r\n- The uniquely generated OTP should expire\r\n- The page behind the 2FA step should not be able to be accessed directly by manipulating the URL\r\n- 2FA should not be automatically disabled during the password recovery process\r\n- The 2FA procedure should not disclose any sensitive information. For example, do not disclose the unredacted phone number of a user\r\n- The 2FA process cannot depend on client-side modifiable header or status codes",
+        "affected_items":
+        [
+            {
+                "affected_function": "Login",
+                "affected_uri": "https://example.com/login"
+            },
+            {
+                "affected_function": "Reset password",
+                "affected_uri": "https://example.com/reset-password"
+            }
+        ]
+    },
+    {
+        "id": "74d1a976-4d42-406c-8ebc-c72c37941ee3",
+        "name": "Privilege Escalation via Broken Access Control",
+        "code": "F2",
+        "rating": "Medium",
+        "description": "Access controls can be bypassed through a variety of ways including, calling an internal post authentication page, modifying the given URL parameters, by manipulating the form, or by counterfeiting sessions. The access controls for this application can be bypassed by an attacker who can gain access to a privileged user’s account and functionality. As a result, the attacker has access to more resources or functionality within the application. This could include viewing or editing sensitive customer data, and viewing or editing other user permissions.",
+        "impact": "The impact of this vulnerability can vary in severity depending on the degree of access to resources or functionality the attacker is able to gain. An attacker with the ability to access, delete, or modify data from within the application could result in reputational damage for the business through the impact to customers’ trust. This can also result in indirect financial cost to the business through fines and regulatory bodies if sensitive data is accessed. The severity of the impact to the business is dependent on the sensitivity of the data being stored in, and transmitted by the application.",
+        "recommendation": "There are a number of best practices involved with implementing strong access controls, including the following:\r\n- Declare the type of access allowed for each resource and deny access by default, unless these specific access conditions are met by a user attempting to access the resource. To enforce these access controls, it’s important to use a single application wide mechanism.\r\n- It is recommended that all critical information is stored server-side, with only a session ID being passed back and forth between the server and client.\r\n- Similarly, the data being sent to the client should be encrypted to ensure that data cannot be viewed in transit, and it should be digitally signed to ensure the data's integrity.\r\n- Thoroughly test and audit the access controls during the development and deployment lifecycle to ensure the security and integrity of the controls.\r\nFor further information, please see the following resources:\r\n- https://owasp.org/Top10/A01_2021-Broken_Access_Control/\r\n- https://owasp.org/www-community/Access_Control",
+        "affected_items":
+        [
+            {
+                "affected_function": "View account detail",
+                "affected_uri": "https://example.com/account"
+            }
+        ]
+    },
+    {
+        "index": 0,
+        "name": "Weak 2FA Implementation",
+        "code": "F1",
+        "rating": "Critical",
+        "description": "Two Factor Authentication (2FA) adds an extra layer of security to user accounts by prompting them to enter a uniquely generated one-time password (OTP) after they have successfully inputted their username and password. The application's implementation of 2FA is weak which makes user accounts more susceptible to compromise. An attacker can take advantage of this weak 2FA implementation and potentially take over user accounts.",
+        "impact": "This vulnerability can lead to reputational damage and indirect financial loss to the company as customers may view the application as insecure.",
+        "recommendation": "There is no single technique to implement 2FA securely. However, the following best practices should be adhered to:\r\n- The 2FA code should be invalidated each time a new code is requested\r\n- 2FA should be implemented for users upon sensitive actions such as login, change of password or security questions, elevation of user session, change of email address or phone number, and disabling of 2FA.\r\n- The uniquely generated OTP should expire\r\n- The page behind the 2FA step should not be able to be accessed directly by manipulating the URL\r\n- 2FA should not be automatically disabled during the password recovery process\r\n- The 2FA procedure should not disclose any sensitive information. For example, do not disclose the unredacted phone number of a user\r\n- The 2FA process cannot depend on client-side modifiable header or status codes",
+        "affected_items":
+        [
+            {
+                "affected_function": "Login",
+                "affected_uri": "https://example.com/login"
+            },
+            {
+                "affected_function": "Reset password",
+                "affected_uri": "https://example.com/reset-password"
+            }
+        ]
+    }
+]
