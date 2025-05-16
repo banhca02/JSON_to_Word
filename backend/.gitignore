@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cài đặt ảo (virtual environments)
+venv/
+.env
+.env.*
+
+# Thư mục build, dist, wheel
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# Cấu hình editor và OS
+.vscode/
+.idea/
+.DS_Store
+
+# Caches
+.pytest_cache/
+.coverage
+
+# Thư mục chứa database SQLite (nếu có)
+*.db
+*.sqlite3
+
+# Các file Docker cache (nếu có)
+.dockerignore

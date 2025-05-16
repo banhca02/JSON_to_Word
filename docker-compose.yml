@@ -1,0 +1,20 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    restart: always
+    networks:
+      - appnet
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    restart: always
+    networks:
+      - appnet
+
+
+networks:
+  appnet:
